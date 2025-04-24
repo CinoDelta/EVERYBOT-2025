@@ -3,6 +3,7 @@ package com.stuypulse.robot.commands.drive;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import com.stuypulse.robot.subsystems.drivetrain.Drivetrain;
+import com.stuypulse.robot.constants.Settings;
 import com.stuypulse.stuylib.input.Gamepad;
 
 public class DriveDefault extends Command {
@@ -19,7 +20,7 @@ public class DriveDefault extends Command {
 
     @Override
     public void execute() {
-        Drivetrain.getInstance().driveArcade(-gamepad.getLeftStick().y, gamepad.getRightStick().x, squared);
+        Drivetrain.getInstance().driveArcade(-gamepad.getLeftStick().y * Settings.Drivetrain.SPEED_LIMITER, gamepad.getRightStick().x * Settings.Drivetrain.SPEED_LIMITER, squared);
     }
 
     @Override
